@@ -1,0 +1,59 @@
+var maxSize = 100;
+var currentTotalSize = 0;
+const items = ["Apple", "Banana", "PC", "Novel", "Keyboard", "Jacket", "Desk", "Watch", "Toy"];
+var manifest = ["Apple", "Banana"];
+var shipments = ["Pencils", "Erasers"];
+var temp = [];
+var index = -1;
+
+function initialize() {
+    manifestList = document.getElementById("manifest")
+    shipList = document.getElementById("packages")
+    displayManifest();
+    displayShipments();
+    console.log(shipments);
+}
+
+function displayManifest() {
+    manifestList.innerHTML = "";
+    let ind = document.getElementsByTagName('button');
+    for (let i = 0; i < manifest.length; i++) 
+    {
+        manifestList.innerHTML += "<br> <button onclick = moveToPackaging();>" + manifest[i] + "</button>";
+        for (var j = 0; j < ind.length; j++) {
+           ind[j].addEventListener('click', function(j) {
+              index = j;
+              console.log(index);
+           }.bind(null, j));
+        }
+    }
+    
+}
+
+function displayShipments() {
+    shipList.innerHTML = ""
+    let ind = document.getElementsByTagName('button');
+    for (let i = 0; i < shipments.length; i++) 
+    {
+        shipList.innerHTML += "<br> <button onclick = moveToManifest();>" + shipments[i] + "</button>";
+        for (var j = 0; j < ind.length; j++) {
+            ind[j].addEventListener('click', function(j) {
+               index = j;
+               console.log(index);
+            }.bind(null, j));
+         }
+    }
+}
+
+function moveToPackaging() {
+    shipments.push(manifest[index]);
+    console.log(shipments)
+    displayShipments();
+}
+
+function moveToManifest() {
+    manifest.push(shipments[index]);
+    shipments.splice(index);
+    console.log(manifest)
+    displayManifest();
+}

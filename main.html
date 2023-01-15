@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <title>Package Sorting</title>
+</head>
+<body onload = "initialize();">
+    <h1 class = "center">Cargo Manifests</h1>
+    <p class = "center">You are tasked with managing items by packaging them into boxes and shipping them.</p>
+    <p class = "center">Clicking on an item in 'Manifests' will send an item to the right side for packaging.</p>
+    <hr>
+    <div class = "center">
+        <h2>Size Selection</h2>
+        <button onclick = "box(10);">Box Size 10</button> 
+        <button onclick = "box(6);">Box Size 6</button> 
+        <button onclick = "box(3);">Box Size 3</button> 
+    </div>
+    <div class = "split left">
+        <h2>Manifests</h2>
+        <h3 id="manifest"></h3>
+    </div>
+    <div class = "split right">
+        <h2>Packaging</h2>
+        <h3 id="packages"></h3>
+    </div>
+    <div class = "center">
+        <h3>Box Size:</h3>
+        <h2 id = "size"></h2>
+        <h3>Total Cost to Ship:</h3>
+        <h2 id = "cost"></h2>
+        <button onclick = "shipOut();">Ship the Box!</button> 
+    </div>
+
+</body>
+</html>
